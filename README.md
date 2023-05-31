@@ -1,6 +1,6 @@
 # LibLab of the Rings
 
-This is Abigail Rictor's take on the LibLab front end take home assignment. Live demo available [here](https://github.com/amrictor).
+This is Abigail Rictor's take on the LibLab front end take home assignment. Live demo available [here](http://liblab.amrictor.com).
 
 ## To run locally
 

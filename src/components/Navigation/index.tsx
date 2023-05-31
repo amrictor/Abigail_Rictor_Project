@@ -7,9 +7,9 @@ function Navigation() {
   return (
     <div className={styles.wrapper}>
       <Link to="/">Home</Link>
-      <Link to="/movies">Movies</Link>
-      <Link to="/characters">Characters</Link>
-      <Link to="/quotes">Quotes</Link>
+      <Link to="/#/movies">Movies</Link>
+      <Link to="/#/characters">Characters</Link>
+      <Link to="/#/quotes">Quotes</Link>
     </div>
   );
 }
