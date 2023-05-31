@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import * as styles from './styles';
 
 function List<T>({ items, render, totalPages, page, setPage }: { 

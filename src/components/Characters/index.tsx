@@ -2,19 +2,17 @@ import React, { useState } from 'react';
 
 import useCharacters from 'queries/useCharacters';
 import Loading from 'components/ui/Loading';
+import List from 'components/ui/List';
 
 import CharacterInfo from './CharacterInfo';
 
 import { CharacterType } from 'types';
 
-import * as styles from './styles';
-import List from 'components/ui/List';
-
 function Characters() {
   const [page, setPage] = useState(1);
-  const { data: { docs: characters, pages }, isLoading } = useCharacters(page);
+  const { data: { docs: characters, pages }, isFetching } = useCharacters(page);
 
-  if (isLoading) {
+  if (isFetching) {
     return <Loading/>
   }
 
@@ -24,7 +22,7 @@ function Characters() {
       setPage={setPage} 
       totalPages={pages} 
       items={characters} 
-      render={(character: CharacterType) => <CharacterInfo character={character}/>}
+      render={(character: CharacterType) => <CharacterInfo key={character._id} character={character}/>}
     />
   );
 }

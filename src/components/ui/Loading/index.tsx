@@ -1,6 +1,12 @@
 import React from 'react';
 import { css } from '@emotion/css'
 
+const wrapper = css`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+`
+
 const tower = css`
   background: black;
   border-radius: 100%;
@@ -53,13 +59,16 @@ const pupil = css`
 
 function Loading() {
   return (
-    <div className={tower}>
-      <div className={background}>
-        <div className={eye}>
-          <div className={pupil}/>
+    <div className={wrapper}>
+      <div className={tower}>
+        <div className={background}>
+          <div className={eye}>
+            <div className={pupil}/>
+          </div>
         </div>
       </div>
     </div>
+    
   );
 }
 

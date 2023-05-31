@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
+
 import useQuotes from 'queries/useQuotes';
 import Loading from 'components/ui/Loading';
-import { QuoteType } from 'types';
-import Quote from './Quote';
 import List from 'components/ui/List';
+
+import Quote from './Quote';
+
+import { QuoteType } from 'types';
 
 function Quotes() {
   const [page, setPage] = useState(1);
-  const { data: { docs: quotes, pages }, isLoading } = useQuotes(page);
+  const { data: { docs: quotes, pages }, isFetching } = useQuotes(page);
 
-  if (isLoading) {
+  if (isFetching) {
     return <Loading/>
   }
 
@@ -19,7 +22,7 @@ function Quotes() {
       setPage={setPage} 
       totalPages={pages} 
       items={quotes} 
-      render={(quote: QuoteType) => <Quote quote={quote}/>}
+      render={(quote: QuoteType) => <Quote key={quote._id} quote={quote}/>}
     />
   );
 }

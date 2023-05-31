@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import useMovies from '../../queries/useMovies';
-import Loading from '../ui/Loading';
-import { MovieType } from 'types';
+
+import useMovies from 'queries/useMovies';
+import Loading from 'components/ui/Loading';
+import List from 'components/ui/List';
+
 import MovieInfo from './MovieInfo';
 
-import * as styles from './styles';
-import List from 'components/ui/List';
+import { MovieType } from 'types';
 
 function Movies() {
   const [page, setPage] = useState(1);
-  const { data: { docs: movies, pages }, isLoading } = useMovies();
+  const { data: { docs: movies, pages }, isFetching } = useMovies();
 
-  if (isLoading) {
-    return <Loading/>
+  if (isFetching) {
+    return <Loading/>;
   }
 
   return (
@@ -21,7 +22,7 @@ function Movies() {
       setPage={setPage} 
       totalPages={pages} 
       items={movies} 
-      render={(movie: MovieType) => <MovieInfo movie={movie}/>}
+      render={(movie: MovieType) => <MovieInfo key={movie._id} movie={movie}/>}
     />
   );
 }
